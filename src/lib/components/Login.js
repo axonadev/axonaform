@@ -1,8 +1,7 @@
 import React, { useState, useRef } from "react";
 import classes from "./style/Login.module.css";
 import { normalizeToken } from "../lib";
-import Button from "axonaui";
-import Card from "axonaui";
+import { Button, Card } from "axonaui";
 
 const Login = ({ logo, onSubmit, urlApi, piva }) => {
   const pivaInputRef = useRef();

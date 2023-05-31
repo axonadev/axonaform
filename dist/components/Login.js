@@ -10,8 +10,7 @@ require("core-js/modules/es.promise.js");
 var _react = _interopRequireWildcard(require("react"));
 var _LoginModule = _interopRequireDefault(require("./style/Login.module.css"));
 var _lib = require("../lib");
-var _Button = _interopRequireDefault(require("./Button"));
-var _Card = _interopRequireDefault(require("./Card"));
+var _axonaui = require("axonaui");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -49,8 +48,8 @@ const Login = _ref => {
       } else {
         const normT = (0, _lib.normalizeToken)(data.Token);
         const expirationTime = new Date(new Date().getTime() + 14400 * 1000);
-        localStorage.setItem("adk_token", normT);
-        localStorage.setItem("adk_exptime", expirationTime);
+        localStorage.setItem("axn_token", normT);
+        localStorage.setItem("axn_exptime", expirationTime);
       }
     }).catch(err => {
       console.log(err);
@@ -58,7 +57,7 @@ const Login = _ref => {
     setIsLoading(false);
     onSubmit();
   }
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Card.default, null, /*#__PURE__*/_react.default.createElement("img", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_axonaui.Card, null, /*#__PURE__*/_react.default.createElement("img", {
     src: logo,
     alt: "",
     className: _LoginModule.default.authlogo
@@ -92,7 +91,7 @@ const Login = _ref => {
     ref: passwordInputRef
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: _LoginModule.default.actions
-  }, !isLoading && /*#__PURE__*/_react.default.createElement(_Button.default, null, isLogin ? "Login" : "Create Account"), isLoading && /*#__PURE__*/_react.default.createElement("p", null, "Sending request..."), isError && /*#__PURE__*/_react.default.createElement("p", null, isError), isNewUser && /*#__PURE__*/_react.default.createElement(_Button.default, {
+  }, !isLoading && /*#__PURE__*/_react.default.createElement(_axonaui.Button, null, isLogin ? "Login" : "Create Account"), isLoading && /*#__PURE__*/_react.default.createElement("p", null, "Sending request..."), isError && /*#__PURE__*/_react.default.createElement("p", null, isError), isNewUser && /*#__PURE__*/_react.default.createElement(_axonaui.Button, {
     type: "button",
     onClick: switchAuthModeHandler
   }, isLogin ? "Create new account" : "Login with existing account")))));
