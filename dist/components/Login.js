@@ -9,7 +9,7 @@ require("core-js/modules/web.dom-collections.iterator.js");
 require("core-js/modules/es.promise.js");
 var _react = _interopRequireWildcard(require("react"));
 var _LoginModule = _interopRequireDefault(require("./style/Login.module.css"));
-var _lib = require("../lib");
+var _axonalib = require("axonalib");
 var _axonaui = require("axonaui");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -46,7 +46,7 @@ const Login = _ref => {
         console.log(data.Errore);
         setIsError(data.Errore);
       } else {
-        const normT = (0, _lib.normalizeToken)(data.Token);
+        const normT = (0, _axonalib.normalizeToken)(data.Token);
         const expirationTime = new Date(new Date().getTime() + 14400 * 1000);
         localStorage.setItem("axn_token", normT);
         localStorage.setItem("axn_exptime", expirationTime);
