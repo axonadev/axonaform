@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 import classes from "./style/Login.module.css";
 import { normalizeToken } from "../lib";
-import Button from "./Button";
-import Card from "./Card";
+import Button from "axonaui";
+import Card from "axonaui";
 
 const Login = ({ logo, onSubmit, urlApi, piva }) => {
   const pivaInputRef = useRef();
@@ -45,8 +45,8 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
         } else {
           const normT = normalizeToken(data.Token);
           const expirationTime = new Date(new Date().getTime() + 14400 * 1000);
-          localStorage.setItem("adk_token", normT);
-          localStorage.setItem("adk_exptime", expirationTime);
+          localStorage.setItem("axn_token", normT);
+          localStorage.setItem("axn_exptime", expirationTime);
         }
       })
       .catch((err) => {
