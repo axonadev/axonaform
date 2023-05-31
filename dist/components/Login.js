@@ -33,7 +33,7 @@ const Login = _ref => {
   };
   async function submitHandler(event) {
     event.preventDefault();
-    const enteredPiva = piva ? piva : pivaInputRef.current.value;
+    const enteredPiva = piva != "" ? piva : pivaInputRef.current.value;
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
     setIsLoading(true);
