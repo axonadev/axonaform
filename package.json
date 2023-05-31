@@ -1,0 +1,59 @@
+{
+  "name": "axonaform",
+  "version": "0.1.1",
+  "private": false,
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "babel src/lib -d dist && xcopy \"src/lib/components/style\" \"dist/components/style\" /h /e /y /i ",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axonadev/axonaform.git"
+  },
+  "keywords": [
+    "axona"
+  ],
+  "author": "soft@axonasrl.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/axonadev/axonaform/issues"
+  },
+  "homepage": "https://github.com/axonadev/axonaform#readme"
+}

@@ -1,0 +1,11 @@
+:root{
+    --adk-primary-color:rgb(0, 102, 0);
+    --adk-primary-text-color:#f1f1f1;
+    --adk-secondary-color:rgb(155, 155, 155);
+    --adk-secondary-text-color:rgb(0, 102, 0);
+    --adk-activate-color:lightgreen;
+    --adk-background-color:#f1f1f1;
+    --adk-box-shadow:#c2c2c2;
+    --adk-color:brown;
+    --adk-input-active:lightgreen;
+}
