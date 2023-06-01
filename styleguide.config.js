@@ -16,11 +16,6 @@ module.exports = {
           name: "Configuration",
           content: "docs/configuration.md",
         },
-        {
-          name: "Live Demo",
-          external: true,
-          href: "http://example.com",
-        },
       ],
     },
     {
@@ -28,7 +23,7 @@ module.exports = {
       content: "docs/ui.md",
       components: "src/lib/components/**/*.js",
       exampleMode: "expand", // 'hide' | 'collapse' | 'expand'
-      usageMode: "expand", // 'hide' | 'collapse' | 'expand'
+      usageMode: "collapse", // 'hide' | 'collapse' | 'expand'
     },
   ],
 };
