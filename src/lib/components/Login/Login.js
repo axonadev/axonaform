@@ -3,6 +3,15 @@ import classes from "../style/Login.module.css";
 import { normalizeToken } from "axonalib";
 import { Button, Card } from "axonaui";
 
+/**
+ * Insert text at cursor position.
+ *
+ * @param {string} logo
+ * @param {string} urlApi
+ * @param {string} piva
+ * @public
+ */
+
 const Login = ({ logo, onSubmit, urlApi, piva }) => {
   const pivaInputRef = useRef();
   const emailInputRef = useRef();
