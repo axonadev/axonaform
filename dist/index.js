@@ -16,6 +16,6 @@ Object.defineProperty(exports, "useLogin", {
   }
 });
 require("./components/style/general.css");
-var _Login = _interopRequireDefault(require("../components/Login"));
+var _Login = _interopRequireDefault(require("./components/Login/Login"));
 var _useLogin = _interopRequireDefault(require("./hooks/useLogin"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
