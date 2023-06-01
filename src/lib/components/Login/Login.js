@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import classes from "./style/Login.module.css";
+import classes from "../style/Login.module.css";
 import { normalizeToken } from "axonalib";
 import { Button, Card } from "axonaui";
 
@@ -19,7 +19,7 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
   async function submitHandler(event) {
     event.preventDefault();
 
-    const enteredPiva = piva != "" ? piva : pivaInputRef.current.value;
+    const enteredPiva = piva ? piva : pivaInputRef.current.value;
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
 
@@ -28,7 +28,7 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
     //fetch login
     await fetch(
       urlApi +
-        (enteredPiva === "" ? "-" : enteredPiva) +
+        (enteredPiva === "" ? "A" : enteredPiva) +
         "/" +
         enteredEmail +
         "/" +
