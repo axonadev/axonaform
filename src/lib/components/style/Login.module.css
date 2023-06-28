@@ -3,16 +3,16 @@
     width: 95%;
     max-width: 25rem;
     border-radius: 6px;
-    background-color: var(--adk-background-color);
-    box-shadow: 0 1px 4px var(--adk-box-shadow);
+    background-color: var(--axo-background-color);
+    box-shadow: 0 1px 4px var(--axo-box-shadow);
     padding: 1rem;
     text-align: center;
-    color: var(--adk-secondary-text-color);
+    color: var(--axo-secondary-text-color);
   }
   
   .auth h1 {
     text-align: center;
-    color: var(--adk-secondary-text-color);
+    color: var(--axo-secondary-text-color);
   }
   .authlogo{
     width: 150px ;
@@ -30,10 +30,10 @@
   
   .control input {
     font: inherit;
-    background-color: var(--adk-background-color);
+    background-color: var(--axo-background-color);
     color: var(--);
     border-radius: 4px;
-    border: 1px solid var(--adk-primary-color);
+    border: 1px solid var(--axo-primary-color);
     width: 100%;
     text-align: left;
     padding: 0.25rem;
@@ -57,12 +57,12 @@
   .actions .toggle {
     margin-top: 1rem;
     background-color: transparent;
-    color: var(--adk-active-color);
+    color: var(--axo-active-color);
     border: none;
     padding: 0.15rem 1.5rem;
   }
   
   .actions .toggle:hover {
     background-color: transparent;
-    color: var(--adk-active-color);
+    color: var(--axo-active-color);
   }
