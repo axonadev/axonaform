@@ -15,7 +15,7 @@ Object.defineProperty(exports, "useLogin", {
     return _useLogin.default;
   }
 });
-require("https://axo.axonasrl.com:9483/css/general.css");
+require("./components/style/general.css");
 var _Login = _interopRequireDefault(require("./components/Login/Login"));
 var _useLogin = _interopRequireDefault(require("./hooks/useLogin"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

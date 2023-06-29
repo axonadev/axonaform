@@ -53,11 +53,14 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
           setIsError(data.Errore);
           localStorage.removeItem("axn_token");
           localStorage.removeItem("axn_exptime");
+          localStorage.removeItem("axn_v_moduli");
         } else {
           const normT = normalizeToken(data.Token);
+          const moduli = data.Itemset.v_moduli;
           const expirationTime = new Date(new Date().getTime() + 14400 * 1000);
           localStorage.setItem("axn_token", normT);
           localStorage.setItem("axn_exptime", expirationTime);
+          localStorage.setItem("axn_v_moduli", moduli);
         }
       })
       .catch((err) => {
