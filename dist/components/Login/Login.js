@@ -46,6 +46,7 @@ const Login = _ref => {
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
     setIsLoading(true);
+    setIsError(false);
 
     //fetch login
     await fetch(urlApi + (enteredPiva === "" ? "A" : enteredPiva) + "/" + enteredEmail + "/" + enteredPassword).then(response => {
@@ -54,6 +55,8 @@ const Login = _ref => {
       if (data.Errore.length > 0) {
         console.log(data.Errore);
         setIsError(data.Errore);
+        localStorage.removeItem("axn_token");
+        localStorage.removeItem("axn_exptime");
       } else {
         const normT = (0, _axonalib.normalizeToken)(data.Token);
         const expirationTime = new Date(new Date().getTime() + 14400 * 1000);

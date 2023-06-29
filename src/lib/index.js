@@ -1,4 +1,4 @@
-import "https://axo.axonasrl.com:9483/css/general.css";
+import "./components/style/general.css";
 import Login from "./components/Login/Login";
 import useLogin from "./hooks/useLogin";
 
