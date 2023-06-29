@@ -60,7 +60,7 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
           const expirationTime = new Date(new Date().getTime() + 14400 * 1000);
           localStorage.setItem("axn_token", normT);
           localStorage.setItem("axn_exptime", expirationTime);
-          localStorage.setItem("axn_v_moduli", moduli);
+          localStorage.setItem("axn_v_moduli", JSON.stringify(moduli));
         }
       })
       .catch((err) => {
