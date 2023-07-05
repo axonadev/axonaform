@@ -52,6 +52,7 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
           console.log(data.Errore);
           setIsError(data.Errore);
           localStorage.removeItem("axn_token");
+          localStorage.removeItem("axn_piva");
           localStorage.removeItem("axn_exptime");
           localStorage.removeItem("axn_v_moduli");
         } else {
@@ -59,6 +60,7 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
           const moduli = data.Itemset.v_moduli;
           const expirationTime = new Date(new Date().getTime() + 14400 * 1000);
           localStorage.setItem("axn_token", normT);
+          localStorage.setItem("axn_piva", enteredPiva);
           localStorage.setItem("axn_exptime", expirationTime);
           localStorage.setItem("axn_v_moduli", JSON.stringify(moduli));
         }

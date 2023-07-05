@@ -7,6 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 require("core-js/modules/web.dom-collections.iterator.js");
 require("core-js/modules/es.promise.js");
+require("core-js/modules/es.json.stringify.js");
 var _react = _interopRequireWildcard(require("react"));
 var _LoginModule = _interopRequireDefault(require("../style/Login.module.css"));
 var _axonalib = require("axonalib");
@@ -64,7 +65,7 @@ const Login = _ref => {
         const expirationTime = new Date(new Date().getTime() + 14400 * 1000);
         localStorage.setItem("axn_token", normT);
         localStorage.setItem("axn_exptime", expirationTime);
-        localStorage.setItem("axn_v_moduli", moduli);
+        localStorage.setItem("axn_v_moduli", JSON.stringify(moduli));
       }
     }).catch(err => {
       console.log(err);
