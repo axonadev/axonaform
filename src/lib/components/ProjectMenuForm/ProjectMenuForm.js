@@ -20,7 +20,7 @@ const ProjectMenuForm = ({ idItem }) => {
 };
 export default ProjectMenuForm;
 
-export const getProgectMenuItem = () => {
+export const getProjectMenuItem = () => {
   const itemspj = [
     {
       id: "anni",
