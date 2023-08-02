@@ -1,15 +1,15 @@
 import React from "react";
 import { Button } from "axonaui";
+import FiltroTemporale from "./FiltroTemporale";
 const ProjectMenuForm = ({ idItem }) => {
   return (
     <div>
-      {idItem === "anni" && (
+      {idItem === "filtro" && (
         <>
-          <p>Anni</p>
-          <input type="date" />
+          <FiltroTemporale />
         </>
       )}
-      {idItem === "conta" && (
+      {idItem === "stampa" && (
         <>
           <p>Contabilizzazione</p>
           <Button>Selezionata</Button>
@@ -23,14 +23,14 @@ export default ProjectMenuForm;
 export const getProjectMenuItem = () => {
   const itemspj = [
     {
-      id: "anni",
-      label: "Anni",
+      id: "filtro",
+      label: "filtro",
       img: "calendar",
       function: () => {},
     },
     {
-      id: "conta",
-      label: "Contabilizzazione",
+      id: "stampa",
+      label: "Stampa",
       img: "print",
       function: () => {},
     },
