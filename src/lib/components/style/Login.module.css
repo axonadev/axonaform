@@ -66,3 +66,7 @@
     background-color: transparent;
     color: var(--axo-active-color);
   }
+  .hidden{
+    visibility: hidden;
+    position: absolute;
+  }

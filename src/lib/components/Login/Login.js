@@ -98,7 +98,13 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
           </div>
           <div className={classes.actions}>
             {!isLoading && (
-              <Button>{isLogin ? "Login" : "Create Account"}</Button>
+              <Button
+                onClick={() => {
+                  document.getElementById("btnsubmit").click();
+                }}
+              >
+                {isLogin ? "Login" : "Create Account"}
+              </Button>
             )}
             {isLoading && <p>Sending request...</p>}
             {isError && <p>{isError}</p>}
@@ -108,6 +114,9 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
               </Button>
             )}
           </div>
+          <button id="btnsubmit" type="submit" className={classes.hidden}>
+            go
+          </button>
         </form>
       </Card>
     </React.Fragment>
