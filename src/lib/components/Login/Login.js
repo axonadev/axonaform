@@ -36,14 +36,21 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
     setIsError(false);
 
     //fetch login
+ 
     await fetch(
-      urlApi +
-        (enteredPiva === "" ? "A" : enteredPiva) +
-        "/" +
-        enteredEmail +
-        "/" +
-        enteredPassword
-    )
+      urlApi ,
+       { method: "post",
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+        },
+        
+        //make sure to serialize your JSON body
+        body: JSON.stringify({
+          azienda:  (enteredPiva === "" ? "A" : enteredPiva),
+          user:enteredEmail,
+        password: enteredPassword
+        })
       .then((response) => {
         return response.json();
       })
