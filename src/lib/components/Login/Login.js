@@ -81,51 +81,64 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
 
   return (
     <React.Fragment>
-      <Card>
-        <img src={logo} alt="" className={classes.authlogo}></img>
-        <form onSubmit={submitHandler}>
-          {!piva && (
+      <div className={classes.loginContainer}>
+        <Card>
+          <img src={logo} alt='' className={classes.authlogo}></img>
+          <form onSubmit={submitHandler}>
+            {!piva && (
+              <div className={classes.control}>
+                <input
+                  type='text'
+                  id='piva'
+                  ref={pivaInputRef}
+                  placeholder='Partita IVA'
+                />
+              </div>
+            )}
             <div className={classes.control}>
-              <label htmlFor="piva">Piva</label>
-              <input type="text" id="piva" ref={pivaInputRef} />
+              <input
+                type='email'
+                id='email'
+                required
+                ref={emailInputRef}
+                placeholder='Email'
+              />
             </div>
-          )}
-          <div className={classes.control}>
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" required ref={emailInputRef} />
-          </div>
-          <div className={classes.control}>
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              required
-              ref={passwordInputRef}
-            />
-          </div>
-          <div className={classes.actions}>
-            {!isLoading && (
-              <Button
-                onClick={() => {
-                  document.getElementById("btnsubmit").click();
-                }}
-              >
-                {isLogin ? "Login" : "Create Account"}
-              </Button>
-            )}
-            {isLoading && <p>Sending request...</p>}
-            {isError && <p>{isError}</p>}
-            {isNewUser && (
-              <Button type="button" onClick={switchAuthModeHandler}>
-                {isLogin ? "Create new account" : "Login with existing account"}
-              </Button>
-            )}
-          </div>
-          <button id="btnsubmit" type="submit" className={classes.hidden}>
-            go
-          </button>
-        </form>
-      </Card>
+            <div className={classes.control}>
+              <input
+                type='password'
+                id='password'
+                required
+                ref={passwordInputRef}
+                placeholder='Password'
+              />
+            </div>
+            <div className={classes.actions}>
+              {!isLoading && (
+                <Button
+                  onClick={() => {
+                    document.getElementById("btnsubmit").click();
+                  }}
+                >
+                  {isLogin ? "Login" : "Create Account"}
+                </Button>
+              )}
+              {isLoading && <p>Sending request...</p>}
+              {isError && <p>{isError}</p>}
+              {isNewUser && (
+                <Button type='button' onClick={switchAuthModeHandler}>
+                  {isLogin
+                    ? "Create new account"
+                    : "Login with existing account"}
+                </Button>
+              )}
+            </div>
+            <button id='btnsubmit' type='submit' className={classes.hidden}>
+              go
+            </button>
+          </form>
+        </Card>
+      </div>
     </React.Fragment>
   );
 };
