@@ -21,6 +21,14 @@
 
 .control {
   margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.control .icon {
+  padding: 3px;
+  border-bottom: 1px solid #ccc;
+  color: #ccc;
 }
 
 .control label {
@@ -32,7 +40,6 @@
 
 .control input {
   background-color: white;
-  border-radius: 4px;
   width: 100%;
   text-align: left;
   padding: 0.25rem;
@@ -51,9 +58,20 @@
 .actions button {
   cursor: pointer;
   font: inherit;
-  color: grey;
+  color: white;
   border-radius: 4px;
+  text-align: center;
   padding: 0.5rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ccc;
+}
+
+.actions button:hover {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: #ccc;
 }
 
 .actions .toggle {
@@ -69,15 +87,23 @@
   color: var(--axo-active-color);
 }
 
-.hidden {
-  visibility: hidden;
-  position: absolute;
-}
-
 .loginContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  width: 100vh;
+  width: 100vw;
+}
+
+.cardContainer {
+  background-color: white;
+  border-radius: 7px;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  background: linear-gradient(to bottom, rgb(95, 95, 95) 0%, rgb(255, 255, 255) 100%);
 }

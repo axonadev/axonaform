@@ -2,6 +2,9 @@ import React, { useState, useRef } from "react";
 import classes from "../style/Login.module.css";
 import { normalizeToken } from "axonalib";
 import { Button, Card } from "axonaui";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+import { faBuilding } from "@fortawesome/free-regular-svg-icons";
 
 /**
  * Insert text at cursor position.
@@ -82,62 +85,62 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
   return (
     <React.Fragment>
       <div className={classes.loginContainer}>
-        <Card>
-          <img src={logo} alt='' className={classes.authlogo}></img>
-          <form onSubmit={submitHandler}>
-            {!piva && (
+        <div className={classes.cardContainer}>
+          <Card>
+            <img src={logo} alt='' className={classes.authlogo} />
+            <form onSubmit={submitHandler}>
+              {!piva && (
+                <div className={classes.control}>
+                  <FontAwesomeIcon icon={faBuilding} className={classes.icon} />
+                  <input
+                    type='text'
+                    id='piva'
+                    ref={pivaInputRef}
+                    placeholder='Partita IVA'
+                  />
+                </div>
+              )}
               <div className={classes.control}>
+                <FontAwesomeIcon icon={faEnvelope} className={classes.icon} />
                 <input
-                  type='text'
-                  id='piva'
-                  ref={pivaInputRef}
-                  placeholder='Partita IVA'
+                  type='email'
+                  id='email'
+                  required
+                  ref={emailInputRef}
+                  placeholder='Email'
                 />
               </div>
-            )}
-            <div className={classes.control}>
-              <input
-                type='email'
-                id='email'
-                required
-                ref={emailInputRef}
-                placeholder='Email'
-              />
-            </div>
-            <div className={classes.control}>
-              <input
-                type='password'
-                id='password'
-                required
-                ref={passwordInputRef}
-                placeholder='Password'
-              />
-            </div>
-            <div className={classes.actions}>
-              {!isLoading && (
-                <Button
-                  onClick={() => {
-                    document.getElementById("btnsubmit").click();
-                  }}
-                >
-                  {isLogin ? "Login" : "Create Account"}
-                </Button>
-              )}
-              {isLoading && <p>Sending request...</p>}
-              {isError && <p>{isError}</p>}
-              {isNewUser && (
-                <Button type='button' onClick={switchAuthModeHandler}>
-                  {isLogin
-                    ? "Create new account"
-                    : "Login with existing account"}
-                </Button>
-              )}
-            </div>
-            <button id='btnsubmit' type='submit' className={classes.hidden}>
-              go
-            </button>
-          </form>
-        </Card>
+              <div className={classes.control}>
+                <FontAwesomeIcon icon={faLock} className={classes.icon} />
+                <input
+                  type='password'
+                  id='password'
+                  required
+                  ref={passwordInputRef}
+                  placeholder='Password'
+                />
+              </div>
+              <div className={classes.actions}>
+                {!isLoading && (
+                  <Button
+                    onClick={() => {
+                      document.getElementById("btnsubmit").click();
+                    }}
+                  >
+                    {isLogin ? "Login" : "Crea Account"}
+                  </Button>
+                )}
+                {isLoading && <p>Sending request...</p>}
+                {isError && <p>{isError}</p>}
+                {isNewUser && (
+                  <Button type='button' onClick={switchAuthModeHandler}>
+                    {isLogin ? "Crea un nuovo account" : "Login"}
+                  </Button>
+                )}
+              </div>
+            </form>
+          </Card>
+        </div>
       </div>
     </React.Fragment>
   );
