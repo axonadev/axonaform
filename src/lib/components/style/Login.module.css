@@ -19,15 +19,24 @@
   width: 150px;
 }
 
-.control {
+.control,
+.error {
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid;
+}
+
+.control {
+  border-color: #ccc;
+}
+
+.error {
+  border-color: crimson;
 }
 
 .control .icon {
-  padding: 3px;
-  border-bottom: 1px solid #ccc;
+  padding: 4px;
   color: #ccc;
 }
 
@@ -45,7 +54,6 @@
   padding: 0.25rem;
   border: none;
   outline: none;
-  border-bottom: 1px solid #ccc;
 }
 
 .actions {

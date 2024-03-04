@@ -24,6 +24,13 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
   const [isError, setIsError] = useState(false);
   const [isNewUser, setIsNewUser] = useState(false);
 
+  // ERRORI PER VALIDAZIONE INPUT
+  const [inputsErrors, setInputsErrors] = useState({
+    erroreMail: "",
+    errorePassword: "",
+    errorePiva: "",
+  });
+
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
   };
@@ -31,23 +38,50 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
   async function submitHandler(event) {
     event.preventDefault();
 
+    // PULISCE ERRORI
+    setInputsErrors({});
+    // INPUT
     const enteredPiva = piva ? piva : pivaInputRef.current.value;
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
 
+    // COSTANTI VALIDAZIONE
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let isValid = true;
+
+    // VALIDAZIONE EMAIL
+    if (enteredEmail.trim() === "") {
+      setInputsErrors((prev) => ({
+        ...prev,
+        erroreMail: "Il campo mail è obbligatorio!",
+      }));
+    } else if (!emailRegex.test(enteredEmail)) {
+      isValid = false;
+      setInputsErrors((prev) => ({
+        ...prev,
+        erroreMail: "Mail non corretta.",
+      }));
+    }
+
+    // VALIDAZIONE PASSWORD
+    if (enteredPassword.length < 8) {
+      isValid = false;
+      setInputsErrors((prev) => ({
+        ...prev,
+        errorePassword: "La password deve contenere almeno 8 caratteri!",
+      }));
+    }
+
     setIsLoading(true);
     setIsError(false);
 
-    //fetch login
-
+    // FETCH LOGIN
     await fetch(urlApi, {
       method: "post",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-
-      //make sure to serialize your JSON body
       body: JSON.stringify({
         azienda: enteredPiva === "" ? "A" : enteredPiva,
         user: enteredEmail,
@@ -89,8 +123,13 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
           <Card>
             <img src={logo} alt='' className={classes.authlogo} />
             <form onSubmit={submitHandler}>
+              {/* PIVA */}
               {!piva && (
-                <div className={classes.control}>
+                <div
+                  className={
+                    inputsErrors.errorePiva ? classes.error : classes.control
+                  }
+                >
                   <FontAwesomeIcon icon={faBuilding} className={classes.icon} />
                   <input
                     type='text'
@@ -100,7 +139,13 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
                   />
                 </div>
               )}
-              <div className={classes.control}>
+
+              {/* EMAIL */}
+              <div
+                className={
+                  inputsErrors.erroreMail ? classes.error : classes.control
+                }
+              >
                 <FontAwesomeIcon icon={faEnvelope} className={classes.icon} />
                 <input
                   type='email'
@@ -110,7 +155,13 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
                   placeholder='Email'
                 />
               </div>
-              <div className={classes.control}>
+
+              {/* PASSWORD */}
+              <div
+                className={
+                  inputsErrors.errorePassword ? classes.error : classes.control
+                }
+              >
                 <FontAwesomeIcon icon={faLock} className={classes.icon} />
                 <input
                   type='password'
@@ -120,7 +171,9 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
                   placeholder='Password'
                 />
               </div>
-              <div className={classes.actions}>
+
+              {/* BOTTONI */}
+              {/* <div className={classes.actions}>
                 {!isLoading && (
                   <Button
                     onClick={() => {
@@ -133,11 +186,23 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
                 {isLoading && <p>Sending request...</p>}
                 {isError && <p>{isError}</p>}
                 {isNewUser && (
-                  <Button type='button' onClick={switchAuthModeHandler}>
-                    {isLogin ? "Crea un nuovo account" : "Login"}
+                  <Button onClick={switchAuthModeHandler}>
+                    {isLogin ? "Crea Account" : "Login"}
                   </Button>
                 )}
-              </div>
+              </div> */}
+
+              {inputsErrors.errorePassword && (
+                <p>{inputsErrors.errorePassword}</p>
+              )}
+              {inputsErrors.erroreMail && (
+                <p className={classes.error_message}>
+                  {inputsErrors.erroreMail}
+                </p>
+              )}
+              {inputsErrors.errorePiva && <p>{inputsErrors.errorePiva}</p>}
+
+              <button>Invia</button>
             </form>
           </Card>
         </div>
