@@ -203,6 +203,7 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
               {inputsErrors.errorePiva && <p>{inputsErrors.errorePiva}</p>}
 
               <button>Invia</button>
+              {/* <Button type={"submit"}>Invia</Button> */}
             </form>
           </Card>
         </div>

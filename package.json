@@ -14,7 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axonaform": "^0.1.25",
     "axonalib": "^0.1.30",
-    "axonaui": "^0.1.172",
+    "axonaui": "^0.1.180",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
