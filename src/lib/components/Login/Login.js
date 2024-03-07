@@ -104,19 +104,14 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
         } else {
           const normT = normalizeToken(data.Token);
           const moduli = data.Itemset.v_moduli;
+          const sysparm = data.Itemset.v_sys_parms;
           const expirationTime = new Date(new Date().getTime() + 14400 * 1000);
           localStorage.setItem("axn_token", normT);
           localStorage.setItem("axn_piva", enteredPiva);
           localStorage.setItem("axn_exptime", expirationTime);
           localStorage.setItem("axn_v_moduli", JSON.stringify(moduli));
-          localStorage.setItem(
-            "axn_utente",
-            data.Itemset.v_sys_parms.Utenti_Utente
-          );
-          localStorage.setItem(
-            "axn_gruppo",
-            data.Itemset.v_sys_parms.Gruppi_Descrizione
-          );
+          localStorage.setItem("axn_utente", sysparm[0].Utenti_Utente);
+          localStorage.setItem("axn_gruppo", sysparm[0].Gruppi_Descrizione);
         }
       })
       .catch((err) => {
