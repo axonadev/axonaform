@@ -1,6 +1,6 @@
 {
   "name": "axonaform",
-  "version": "0.1.26",
+  "version": "0.1.27",
   "private": false,
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
@@ -12,9 +12,9 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axonaform": "^0.1.25",
-    "axonalib": "^0.1.30",
-    "axonaui": "^0.1.180",
+    "axonaform": "^0.1.26",
+    "axonalib": "^0.1.33",
+    "axonaui": "^0.1.182",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
