@@ -1,7 +1,7 @@
 input {
   border: none;
   outline: none;
-  background-color: white;
+  background-color: var(--axn-white-color);
 }
 
 .auth {
@@ -34,16 +34,16 @@ input {
 }
 
 .control {
-  border-color: #ccc;
+  border-color: var(--axn-gray-color);
 }
 
 .error {
-  border-color: crimson;
+  border-color: var(--axn-danger-color);
 }
 
 .control .icon {
   padding: 4px;
-  color: #ccc;
+  color: var(--axn-gray-color);
 }
 
 .control label {
@@ -53,7 +53,7 @@ input {
 }
 
 .control input {
-  background-color: white;
+  background-color: var(--axn-white-color);
   width: 100%;
   text-align: left;
   padding: 0.25rem;
@@ -71,20 +71,20 @@ input {
 .actions button {
   cursor: pointer;
   font: inherit;
-  color: white;
+  color: var(--axn-white-color);
   border-radius: 4px;
   text-align: center;
   padding: 0.5rem 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ccc;
+  background-color: var(--axn-gray-color);
 }
 
 .actions button:hover {
   background-color: transparent;
-  border: 1px solid #ccc;
-  color: #ccc;
+  border: 1px solid var(--axn-gray-color);
+  color: var(--axn-gray-color);
 }
 
 .actions .toggle {
@@ -109,7 +109,7 @@ input {
 }
 
 .cardContainer {
-  background-color: white;
+  background-color: var(--axn-white-color);
   border-radius: 7px;
   min-width: 30%;
   display: flex;

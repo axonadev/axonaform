@@ -1,3 +1,26 @@
+/*! qui */
+:root {
+  --axn-primary-color: #35414F;
+  --axn-accents-color: #3499DD;
+  --axn-danger-color: #ff5c5c94;
+  --axn-success-color: #5cf75c94;
+  --axn-warning-color: #ffa75c94;
+  --axn-transparent-color: transparent;
+  --axn-white-color: #ffffff;
+  --axn-black-color: #000000;
+  --axn-gray-color: #c2c2c2;
+  --axn-purple-color: #434971;
+  --axn-orange-color: #FF9800;
+  --axn-haven-color: #82a6cf;
+  --axn-lightgray-color: #dddddd70;
+  --axn-lighthaven-color: #82a6cf70;
+  --axn-darkgray-color: #666F7A;
+  --axn-green-color: #00AFAE;
+  --axn-input-font-size: 15px;
+  --axn-border-radius: 5px;
+  --axn-height-top: 60px;
+}
+
 .App {
   text-align: center;
 }
