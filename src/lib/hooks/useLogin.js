@@ -3,8 +3,8 @@ const useLogin = () => {
   const [isLogged, setIsLogged] = useState(false);
 
   const getLogged = () => {
-    const expirationTime = localStorage.getItem("adk_exptime");
-    const token = localStorage.getItem("adk_token");
+    const expirationTime = localStorage.getItem("axn_exptime");
+    const token = localStorage.getItem("axn_token");
     if (token) {
       if (expirationTime) {
         const nowexpirationTime = new Date(new Date().getTime() * 1000);

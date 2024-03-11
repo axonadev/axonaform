@@ -99,14 +99,19 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
           localStorage.removeItem("axn_piva");
           localStorage.removeItem("axn_exptime");
           localStorage.removeItem("axn_v_moduli");
+          localStorage.removeItem("axn_utente");
+          localStorage.removeItem("axn_gruppo");
         } else {
           const normT = normalizeToken(data.Token);
           const moduli = data.Itemset.v_moduli;
+          const sysparm = data.Itemset.v_sys_parms;
           const expirationTime = new Date(new Date().getTime() + 14400 * 1000);
           localStorage.setItem("axn_token", normT);
           localStorage.setItem("axn_piva", enteredPiva);
           localStorage.setItem("axn_exptime", expirationTime);
           localStorage.setItem("axn_v_moduli", JSON.stringify(moduli));
+          localStorage.setItem("axn_utente", sysparm[0].Utenti_Utente);
+          localStorage.setItem("axn_gruppo", sysparm[0].Gruppi_Descrizione);
         }
       })
       .catch((err) => {
@@ -121,7 +126,7 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
       <div className={classes.loginContainer}>
         <div className={classes.cardContainer}>
           <Card>
-            <img src={logo} alt='' className={classes.authlogo} />
+            <img src={logo} alt="" className={classes.authlogo} />
             <form onSubmit={submitHandler}>
               {/* PIVA */}
               {!piva && (
@@ -132,10 +137,10 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
                 >
                   <FontAwesomeIcon icon={faBuilding} className={classes.icon} />
                   <input
-                    type='text'
-                    id='piva'
+                    type="text"
+                    id="piva"
                     ref={pivaInputRef}
-                    placeholder='Partita IVA'
+                    placeholder="Partita IVA"
                   />
                 </div>
               )}
@@ -148,11 +153,11 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
               >
                 <FontAwesomeIcon icon={faEnvelope} className={classes.icon} />
                 <input
-                  type='email'
-                  id='email'
+                  type="email"
+                  id="email"
                   required
                   ref={emailInputRef}
-                  placeholder='Email'
+                  placeholder="Email"
                 />
               </div>
 
@@ -164,11 +169,11 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
               >
                 <FontAwesomeIcon icon={faLock} className={classes.icon} />
                 <input
-                  type='password'
-                  id='password'
+                  type="password"
+                  id="password"
                   required
                   ref={passwordInputRef}
-                  placeholder='Password'
+                  placeholder="Password"
                 />
               </div>
 
