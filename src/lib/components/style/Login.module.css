@@ -141,6 +141,10 @@ input {
   justify-content: center;
 }
 
+.cardContainer div {
+  width: 100%;
+}
+
 body {
   background: linear-gradient(to bottom, rgb(95, 95, 95) 0%, rgb(255, 255, 255) 100%);
 }
