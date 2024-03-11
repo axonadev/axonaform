@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import classes from "../style/Login.module.css";
 import { normalizeToken } from "axonalib";
-import { Button, Card } from "axonaui";
+import { Button, Card, ImgFont } from "axonaui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { faBuilding } from "@fortawesome/free-regular-svg-icons";
@@ -126,7 +126,7 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
       <div className={classes.loginContainer}>
         <div className={classes.cardContainer}>
           <Card>
-            <img src={logo} alt="" className={classes.authlogo} />
+            <img src={logo} alt='' className={classes.authlogo} />
             <form onSubmit={submitHandler}>
               {/* PIVA */}
               {!piva && (
@@ -137,10 +137,10 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
                 >
                   <FontAwesomeIcon icon={faBuilding} className={classes.icon} />
                   <input
-                    type="text"
-                    id="piva"
+                    type='text'
+                    id='piva'
                     ref={pivaInputRef}
-                    placeholder="Partita IVA"
+                    placeholder='Partita IVA'
                   />
                 </div>
               )}
@@ -153,11 +153,11 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
               >
                 <FontAwesomeIcon icon={faEnvelope} className={classes.icon} />
                 <input
-                  type="email"
-                  id="email"
+                  type='email'
+                  id='email'
                   required
                   ref={emailInputRef}
-                  placeholder="Email"
+                  placeholder='Email'
                 />
               </div>
 
@@ -169,34 +169,15 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
               >
                 <FontAwesomeIcon icon={faLock} className={classes.icon} />
                 <input
-                  type="password"
-                  id="password"
+                  type='password'
+                  id='password'
                   required
                   ref={passwordInputRef}
-                  placeholder="Password"
+                  placeholder='Password'
                 />
               </div>
 
               {/* BOTTONI */}
-              {/* <div className={classes.actions}>
-                {!isLoading && (
-                  <Button
-                    onClick={() => {
-                      document.getElementById("btnsubmit").click();
-                    }}
-                  >
-                    {isLogin ? "Login" : "Crea Account"}
-                  </Button>
-                )}
-                {isLoading && <p>Sending request...</p>}
-                {isError && <p>{isError}</p>}
-                {isNewUser && (
-                  <Button onClick={switchAuthModeHandler}>
-                    {isLogin ? "Crea Account" : "Login"}
-                  </Button>
-                )}
-              </div> */}
-
               {inputsErrors.errorePassword && (
                 <p>{inputsErrors.errorePassword}</p>
               )}
@@ -206,8 +187,10 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
                 </p>
               )}
               {inputsErrors.errorePiva && <p>{inputsErrors.errorePiva}</p>}
-
-              <Button type='submit'>Login</Button>
+              <button className={classes.button}>
+                <ImgFont icon='faLock'></ImgFont>
+                Login
+              </button>
             </form>
           </Card>
         </div>
