@@ -3,7 +3,6 @@ import classes from "../style/Login.module.css";
 import { normalizeToken } from "axonalib";
 import { Card, ImgFont } from "axonaui";
 
-
 /**
  * Insert text at cursor position.
  *

@@ -69,6 +69,7 @@ input {
 .control .icon {
   padding: 4px;
   color: var(--axn-primary-color);
+  width: 30px;
 }
 
 .control label {
