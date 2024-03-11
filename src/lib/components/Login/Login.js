@@ -122,8 +122,13 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
     <React.Fragment>
       <div className={classes.loginContainer}>
         <div className={classes.cardContainer}>
+          <div className={classes.logo}>
+            <img
+              src='https://axonasrl.com/wp-content/uploads/2021/05/logo.png'
+              alt='logo'
+            />
+          </div>
           <Card>
-            <img src={logo} alt='' className={classes.authlogo} />
             <form onSubmit={submitHandler}>
               {/* PIVA */}
               {!piva && (
