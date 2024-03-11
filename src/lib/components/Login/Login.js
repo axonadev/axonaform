@@ -1,10 +1,8 @@
 import React, { useState, useRef } from "react";
 import classes from "../style/Login.module.css";
 import { normalizeToken } from "axonalib";
-import { Button, Card, ImgFont } from "axonaui";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
-import { faBuilding } from "@fortawesome/free-regular-svg-icons";
+import { Card, ImgFont } from "axonaui";
+
 
 /**
  * Insert text at cursor position.
@@ -135,7 +133,7 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
                     inputsErrors.errorePiva ? classes.error : classes.control
                   }
                 >
-                  <FontAwesomeIcon icon={faBuilding} className={classes.icon} />
+                  <ImgFont icon='faBuilding' className={classes.icon} />
                   <input
                     type='text'
                     id='piva'
@@ -151,7 +149,7 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
                   inputsErrors.erroreMail ? classes.error : classes.control
                 }
               >
-                <FontAwesomeIcon icon={faEnvelope} className={classes.icon} />
+                <ImgFont icon='faEnvelope' className={classes.icon} />
                 <input
                   type='email'
                   id='email'
@@ -167,7 +165,7 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
                   inputsErrors.errorePassword ? classes.error : classes.control
                 }
               >
-                <FontAwesomeIcon icon={faLock} className={classes.icon} />
+                <ImgFont icon='faLock' className={classes.icon} />
                 <input
                   type='password'
                   id='password'
@@ -188,8 +186,8 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
               )}
               {inputsErrors.errorePiva && <p>{inputsErrors.errorePiva}</p>}
               <button className={classes.button}>
-                <ImgFont icon='faLock'></ImgFont>
-                Login
+                <ImgFont icon='faLock' />
+                <span>Login</span>
               </button>
             </form>
           </Card>

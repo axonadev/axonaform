@@ -50,23 +50,25 @@ input {
 
 .control,
 .error {
+  font-size: 1.3rem;
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid;
+  border-bottom: 2px solid;
 }
 
 .control {
-  border-color: var(--axn-gray-color);
+  border-color: var(--axn-primary-color);
 }
 
 .error {
   border-color: var(--axn-danger-color);
 }
 
+.error .icon,
 .control .icon {
   padding: 4px;
-  color: var(--axn-gray-color);
+  color: var(--axn-primary-color);
 }
 
 .control label {
@@ -144,17 +146,23 @@ body {
 }
 
 .button {
-  padding: 5px 10px;
+  margin-top: 10px;
+  padding: 10px;
   background-color: var(--axn-primary-color);
   color: var(--axn-white-color);
   border-radius: var(--axn-border-radius);
   border: 1px solid var(--axn-primary-color);
   cursor: pointer;
   transition: all 0.3s;
-  min-width: 35%;
+  min-width: 50%;
+  font-size: 1.1rem;
 }
 
 .button:hover {
   color: var(--axn-primary-color);
   background-color: var(--axn-white-color);
+}
+
+span {
+  margin-left: 5px;
 }
