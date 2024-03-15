@@ -98,6 +98,9 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
           localStorage.removeItem("axn_v_moduli");
           localStorage.removeItem("axn_utente");
           localStorage.removeItem("axn_gruppo");
+          localStorage.removeItem("axn_nomesoggetto");
+          localStorage.removeItem("axn_pacchetto");
+          localStorage.removeItem("axn_nickazienda");
         } else {
           const normT = normalizeToken(data.Token);
           const moduli = data.Itemset.v_moduli;
@@ -109,6 +112,12 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
           localStorage.setItem("axn_v_moduli", JSON.stringify(moduli));
           localStorage.setItem("axn_utente", sysparm[0].Utenti_Utente);
           localStorage.setItem("axn_gruppo", sysparm[0].Gruppi_Descrizione);
+          localStorage.setItem(
+            "axn_nomesoggetto",
+            sysparm[0].Soggetti_NomeUtente
+          );
+          localStorage.setItem("axn_pacchetto", sysparm[0].Pacchetti_Pacchetto);
+          localStorage.setItem("axn_nickazienda", sysparm[0].Aziende_Nome);
         }
       })
       .catch((err) => {
@@ -124,8 +133,8 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
         <div className={classes.cardContainer}>
           <div className={classes.logo}>
             <img
-              src='https://axonasrl.com/wp-content/uploads/2021/05/logo.png'
-              alt='logo'
+              src="https://axonasrl.com/wp-content/uploads/2021/05/logo.png"
+              alt="logo"
             />
           </div>
           <Card>
@@ -137,12 +146,12 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
                     inputsErrors.errorePiva ? classes.error : classes.control
                   }
                 >
-                  <ImgFont icon='faBuilding' className={classes.icon} />
+                  <ImgFont icon="faBuilding" className={classes.icon} />
                   <input
-                    type='text'
-                    id='piva'
+                    type="text"
+                    id="piva"
                     ref={pivaInputRef}
-                    placeholder='Partita IVA'
+                    placeholder="Partita IVA"
                   />
                 </div>
               )}
@@ -153,13 +162,13 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
                   inputsErrors.erroreMail ? classes.error : classes.control
                 }
               >
-                <ImgFont icon='faEnvelope' className={classes.icon} />
+                <ImgFont icon="faEnvelope" className={classes.icon} />
                 <input
-                  type='email'
-                  id='email'
+                  type="email"
+                  id="email"
                   required
                   ref={emailInputRef}
-                  placeholder='Email'
+                  placeholder="Email"
                 />
               </div>
 
@@ -169,13 +178,13 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
                   inputsErrors.errorePassword ? classes.error : classes.control
                 }
               >
-                <ImgFont icon='faLock' className={classes.icon} />
+                <ImgFont icon="faLock" className={classes.icon} />
                 <input
-                  type='password'
-                  id='password'
+                  type="password"
+                  id="password"
                   required
                   ref={passwordInputRef}
-                  placeholder='Password'
+                  placeholder="Password"
                 />
               </div>
 
@@ -190,7 +199,7 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
               )}
               {inputsErrors.errorePiva && <p>{inputsErrors.errorePiva}</p>}
               <button className={classes.button}>
-                <ImgFont icon='faLock' />
+                <ImgFont icon="faLock" />
                 <span>Login</span>
               </button>
             </form>
