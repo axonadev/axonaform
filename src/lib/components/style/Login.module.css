@@ -158,7 +158,7 @@ img {
 }
 
 body {
-  background: linear-gradient(to bottom, rgb(95, 95, 95) 0%, rgb(255, 255, 255) 100%);
+  background: var(--axn-primary-color);
 }
 
 .button {
