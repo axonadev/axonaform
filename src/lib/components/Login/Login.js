@@ -12,7 +12,7 @@ import { Card, ImgFont } from "axonaui";
  * @public
  */
 
-const Login = ({ logo, onSubmit, urlApi, piva }) => {
+const Login = ({ logo, onSubmit, urlApi, piva, className }) => {
   const pivaInputRef = useRef();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
@@ -27,6 +27,8 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
     errorePassword: "",
     errorePiva: "",
   });
+
+  const style = [classes.loginContainer, classes[className]];
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -129,7 +131,7 @@ const Login = ({ logo, onSubmit, urlApi, piva }) => {
 
   return (
     <React.Fragment>
-      <div className={classes.loginContainer}>
+      <div className={style.join(" ")}>
         <div className={classes.cardContainer}>
           <div className={classes.logo}>
             <img

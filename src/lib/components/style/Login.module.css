@@ -144,6 +144,16 @@ img {
   width: 100vw;
 }
 
+.loginContainer_box {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+.loginContainer_box img{
+  max-width: 100px;
+}
+
 .cardContainer {
   border-radius: 7px;
   min-width: 30%;

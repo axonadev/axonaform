@@ -1,6 +1,6 @@
 {
   "name": "axonaform",
-  "version": "0.1.40",
+  "version": "0.1.41",
   "private": false,
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
