@@ -28,7 +28,7 @@ const Login = ({ logo, onSubmit, urlApi, piva, className }) => {
     errorePiva: "",
   });
 
-  const style = [classes.loginContainer, classes[className]];
+  const style = [classes.loginContainer, classes[className], className];
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
